@@ -16,12 +16,26 @@ export function LandingPage() {
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10">
             Practice speech, pronunciation, and interview skills online. Build confidence and communicate with clarity.
           </p>
-          <Link
-            to="/feedback"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full hover:from-cyan-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
-          >
-            Provide Your Suggestions
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/rate-idea"
+              className="inline-flex px-8 py-4 bg-white border border-cyan-200 text-cyan-700 rounded-full hover:bg-cyan-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              Rate this idea
+            </Link>
+            <Link
+              to="/feedback"
+              className="inline-flex px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full hover:from-cyan-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              Provide Your Suggestions
+            </Link>
+            <Link
+              to="/waitlist"
+              className="inline-flex px-8 py-4 bg-white border border-teal-200 text-teal-700 rounded-full hover:bg-teal-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              Join the Waitlist
+            </Link>
+          </div>
         </div>
 
         <div className="mt-16">

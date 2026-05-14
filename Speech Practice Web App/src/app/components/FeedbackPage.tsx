@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Send } from "lucide-react";
+import { sendSubmissionEmail } from "../lib/email";
 
 export function FeedbackPage() {
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     helpWith: [] as string[],
     features: [] as string[],
@@ -23,8 +25,26 @@ export function FeedbackPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    navigate("/thank-you");
+    setIsSubmitting(true);
+
+    sendSubmissionEmail({
+      kind: "suggestion",
+      title: "New suggestion submission",
+      message: [
+        `Help with: ${formData.helpWith.join(", ") || "None selected"}`,
+        `Features: ${formData.features.join(", ") || "None selected"}`,
+        `Biggest challenge: ${formData.challenge || "Not provided"}`,
+        `Suggestions: ${formData.suggestions || "Not provided"}`,
+        `Email: ${formData.email || "Not provided"}`,
+      ].join("\n"),
+      replyTo: formData.email,
+    })
+      .then(() => navigate("/thank-you"))
+      .catch((error) => {
+        console.error("Failed to send suggestion email:", error);
+        alert("Email settings are not configured yet. Please add your EmailJS credentials.");
+      })
+      .finally(() => setIsSubmitting(false));
   };
 
   return (
@@ -148,10 +168,11 @@ export function FeedbackPage() {
           {/* Submit Button */}
           <button
             type="submit"
+            disabled={isSubmitting}
             className="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full hover:from-cyan-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
           >
             <Send className="w-5 h-5" />
-            Submit Suggestions
+            {isSubmitting ? "Sending..." : "Submit Suggestions"}
           </button>
         </form>
 
