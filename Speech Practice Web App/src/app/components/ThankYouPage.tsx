@@ -19,15 +19,6 @@ export function ThankYouPage() {
             </p>
           </div>
 
-          {/* Illustration */}
-          <div className="mb-8">
-            <img
-              src="/src/imports/ChatGPT_Image_May_13__2026__09_51_24_PM.png"
-              alt="Speech practice success"
-              className="rounded-2xl w-full max-w-md mx-auto"
-            />
-          </div>
-
           {/* CTA Button */}
           <Link
             to="/"

@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { Mic, MessageSquare, Target, TrendingUp, Users, Sparkles } from "lucide-react";
+import pstaImage from "../../imports/psta.png";
 
 export function LandingPage() {
   return (
@@ -40,7 +41,7 @@ export function LandingPage() {
 
         <div className="mt-16">
           <img
-            src="src/imports/psta.png"
+            src={pstaImage}
             alt="Speech practice platform interface"
             className="rounded-3xl shadow-2xl w-full max-w-4xl mx-auto"
           />
