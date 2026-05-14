@@ -1,6 +1,13 @@
 [build]
-  command = "cd \"Speech Practice Web App\" && npm install && npm run build"
+  command = "cd \"Speech Practice Web App\" && pnpm install && pnpm build"
   publish = "Speech Practice Web App/dist"
+
+# Environment variables required for email functionality
+# Set these in Netlify UI: Site Settings > Build & Deploy > Environment
+# VITE_EMAILJS_SERVICE_ID
+# VITE_EMAILJS_TEMPLATE_ID
+# VITE_EMAILJS_PUBLIC_KEY
+# VITE_FEEDBACK_EMAIL
 
 [[redirects]]
   from = "/*"
