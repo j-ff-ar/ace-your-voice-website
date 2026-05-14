@@ -1,0 +1,9 @@
+{
+  "name": "ace-your-voice-website-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix \"Speech Practice Web App\" run dev",
+    "build": "npm --prefix \"Speech Practice Web App\" run build",
+    "start": "npm --prefix \"Speech Practice Web App\" run start"
+  }
+}
