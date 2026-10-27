@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { Mic, MessageSquare, Target, TrendingUp, Users, Sparkles } from "lucide-react";
-import pstaImage from "../../imports/psta.png";
+import pstaWebp from "../../imports/psta.webp";
+import pstaFallback from "../../imports/psta-opt.png";
 
 export function LandingPage() {
   return (
@@ -40,11 +41,19 @@ export function LandingPage() {
         </div>
 
         <div className="mt-16">
-          <img
-            src={pstaImage}
-            alt="Speech practice platform interface"
-            className="rounded-3xl shadow-2xl w-full max-w-4xl mx-auto"
-          />
+          <picture>
+            <source srcSet={pstaWebp} type="image/webp" />
+            <img
+              src={pstaFallback}
+              alt="KinTherapy tele-rehabilitation platform interface"
+              className="rounded-3xl shadow-2xl w-full max-w-4xl mx-auto"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              width={2752}
+              height={1536}
+            />
+          </picture>
         </div>
       </section>
 
