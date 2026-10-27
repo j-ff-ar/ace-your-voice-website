@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Send } from "lucide-react";
-import { sendSubmissionEmail } from "../lib/email";
 
 export function FeedbackPage() {
   const navigate = useNavigate();
@@ -26,25 +25,8 @@ export function FeedbackPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    sendSubmissionEmail({
-      kind: "suggestion",
-      title: "New suggestion submission",
-      message: [
-        `Help with: ${formData.helpWith.join(", ") || "None selected"}`,
-        `Features: ${formData.features.join(", ") || "None selected"}`,
-        `Biggest challenge: ${formData.challenge || "Not provided"}`,
-        `Suggestions: ${formData.suggestions || "Not provided"}`,
-        `Email: ${formData.email || "Not provided"}`,
-      ].join("\n"),
-      replyTo: formData.email,
-    })
-      .then(() => navigate("/thank-you"))
-      .catch((error) => {
-        console.error("Failed to send suggestion email:", error);
-        alert("Email settings are not configured yet. Please add your EmailJS credentials.");
-      })
-      .finally(() => setIsSubmitting(false));
+    navigate("/thank-you");
+    setIsSubmitting(false);
   };
 
   return (
@@ -53,10 +35,10 @@ export function FeedbackPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl mb-4 text-gray-900">
-            Help Us Build This Platform
+            Help Us Transform Speech Therapy
           </h1>
           <p className="text-lg text-gray-600">
-            We're in the early stage. Your ideas will shape the product.
+            We are co-designing KinTherapy with speech therapists and families. Share your experience below.
           </p>
         </div>
 
@@ -65,14 +47,14 @@ export function FeedbackPage() {
           {/* Question 1: What do you want help with? */}
           <div className="mb-8">
             <label className="block mb-4 text-gray-900">
-              What do you want help with?
+              Who are you and what is your primary focus?
             </label>
             <div className="space-y-3">
               {[
-                "Stuttering",
-                "Pronunciation",
-                "Interview preparation",
-                "Public speaking",
+                "Parent of a child with speech delay / stammering",
+                "Adult managing stammering (stuttering)",
+                "Adult with articulation or post-stroke speech recovery",
+                "Licensed Speech-Language Pathologist / Clinic Owner",
               ].map((option) => (
                 <label key={option} className="flex items-center gap-3 cursor-pointer group">
                   <input
@@ -92,15 +74,15 @@ export function FeedbackPage() {
           {/* Question 2: Which features would you use? */}
           <div className="mb-8">
             <label className="block mb-4 text-gray-900">
-              Which features would you use most?
+              Which features are most needed?
             </label>
             <div className="space-y-3">
               {[
-                "Voice recording & playback",
-                "AI feedback on speech",
-                "Mock interview practice",
-                "Daily speaking exercises",
-                "Progress tracking",
+                "Daily guided phone practice with live voice feedback",
+                "Visual breathing and pacing cues (for stammering & rhythm)",
+                "Automatic progress reports sent to my speech therapist",
+                "Clinician dashboard to track patient homework compliance",
+                "Online directory to find and book certified speech therapists",
               ].map((option) => (
                 <label key={option} className="flex items-center gap-3 cursor-pointer group">
                   <input
@@ -120,14 +102,14 @@ export function FeedbackPage() {
           {/* Question 3: Biggest speaking challenge */}
           <div className="mb-8">
             <label htmlFor="challenge" className="block mb-4 text-gray-900">
-              What's your biggest speaking challenge?
+              What is your biggest challenge with current speech therapy or home practice?
             </label>
             <input
               type="text"
               id="challenge"
               value={formData.challenge}
               onChange={(e) => setFormData({ ...formData, challenge: e.target.value })}
-              placeholder="e.g., Getting nervous during presentations"
+              placeholder="e.g., Hard to stay consistent at home, Paper worksheets are boring, No way to know if I'm practicing correctly, Long clinic waiting lists"
               className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
             />
           </div>
@@ -135,7 +117,7 @@ export function FeedbackPage() {
           {/* Question 4: Suggestions */}
           <div className="mb-8">
             <label htmlFor="suggestions" className="block mb-4 text-gray-900">
-              Any suggestions or features you'd like to see?
+              What features would make you or your therapist trust this platform most?
             </label>
             <textarea
               id="suggestions"
@@ -161,7 +143,7 @@ export function FeedbackPage() {
               className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
             />
             <p className="text-sm text-gray-500 mt-2">
-              We'll notify you when early access opens.
+              Leave your email to receive early access to the patient app or clinical pilot dashboard.
             </p>
           </div>
 
@@ -172,7 +154,7 @@ export function FeedbackPage() {
             className="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full hover:from-cyan-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
           >
             <Send className="w-5 h-5" />
-            {isSubmitting ? "Sending..." : "Submit Suggestions"}
+            {isSubmitting ? "Sending..." : "Send Your Feedback"}
           </button>
         </form>
 

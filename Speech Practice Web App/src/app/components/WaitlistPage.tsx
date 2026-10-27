@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { Mail } from "lucide-react";
-import { sendSubmissionEmail } from "../lib/email";
 
 export function WaitlistPage() {
   const navigate = useNavigate();
@@ -11,19 +10,8 @@ export function WaitlistPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    sendSubmissionEmail({
-      kind: "waitlist",
-      title: "New waitlist signup",
-      message: `Waitlist signup email: ${email}`,
-      replyTo: email,
-    })
-      .then(() => navigate("/thank-you"))
-      .catch((error) => {
-        console.error("Failed to send waitlist email:", error);
-        alert("Email settings are not configured yet. Please add your EmailJS credentials.");
-      })
-      .finally(() => setIsSubmitting(false));
+    navigate("/thank-you");
+    setIsSubmitting(false);
   };
 
   return (

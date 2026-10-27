@@ -12,29 +12,29 @@ export function LandingPage() {
             Coming Soon
           </span>
           <h1 className="text-4xl md:text-6xl mb-6 text-gray-900">
-            Speak Clearly. Sound Confident.
+            Therapy Beyond The Clinic
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-            Practice speech, pronunciation, and interview skills online. Build confidence and communicate with clarity.
+            A digital platform that provides guided speech practices. 
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/rate-idea"
               className="inline-flex px-8 py-4 bg-white border border-cyan-200 text-cyan-700 rounded-full hover:bg-cyan-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Rate this idea
+              Rate This Idea
             </Link>
             <Link
               to="/feedback"
               className="inline-flex px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full hover:from-cyan-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Provide Your Suggestions
+              Provide Your Feedback
             </Link>
             <Link
               to="/waitlist"
               className="inline-flex px-8 py-4 bg-white border border-teal-200 text-teal-700 rounded-full hover:bg-teal-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Join the Waitlist
+              Join Early Waitlist
             </Link>
           </div>
         </div>
@@ -52,10 +52,10 @@ export function LandingPage() {
       <section className="px-6 py-20 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-center mb-4 text-gray-900">
-            Why This Matters
+            Why Home Practice Fails Today
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Whether you're overcoming stuttering, improving pronunciation, or preparing for interviews, we're here to help.
+            Patients spend 3-4 times of 45 minutes session a week in the clinic. The remaining hours rely on boring paper worksheets that suffer from over 70% abandonment.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -63,9 +63,9 @@ export function LandingPage() {
               <div className="w-16 h-16 bg-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl mb-3 text-gray-900">Build Confidence</h3>
+              <h3 className="text-xl mb-3 text-gray-900">Therapy after clinic</h3>
               <p className="text-gray-600">
-                Practice in a safe, judgment-free environment. Gain the confidence to speak up in any situation.
+                Progress stalls when therapy stops at the clinic door. Daily, guided 10-minute home routines turn weekly clinical goals into lasting speech recovery.
               </p>
             </div>
 
@@ -73,9 +73,9 @@ export function LandingPage() {
               <div className="w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl mb-3 text-gray-900">Improve Clarity</h3>
+              <h3 className="text-xl mb-3 text-gray-900">Safe, Real-Time Voice Feedback</h3>
               <p className="text-gray-600">
-                Get personalized feedback on pronunciation, pacing, and articulation to communicate more effectively.
+                Practicing without feedback reinforces incorrect motor habits and throat tension. Our instant audio biofeedback gently guides pacing, breathing, and smooth speech.
               </p>
             </div>
 
@@ -83,9 +83,9 @@ export function LandingPage() {
               <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl mb-3 text-gray-900">Advance Your Career</h3>
+              <h3 className="text-xl mb-3 text-gray-900">Real-World Communication Missions</h3>
               <p className="text-gray-600">
-                Nail interviews, presentations, and professional conversations with targeted practice.
+                Speech therapy shouldn't stay trapped on a screen. Clinician-guided daily missions encourage real-world conversations to overcome social avoidance and fear.
               </p>
             </div>
           </div>
@@ -96,10 +96,10 @@ export function LandingPage() {
       <section className="px-6 py-20 bg-gradient-to-b from-white to-cyan-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-center mb-4 text-gray-900">
-            Planned Features
+            The Complete Clinical Loop
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Here's what we're building to help you succeed.
+            Replacing paper worksheets with an intelligent link between home and clinic.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -108,9 +108,9 @@ export function LandingPage() {
                 <Mic className="w-6 h-6 text-cyan-600" />
               </div>
               <div>
-                <h4 className="mb-2 text-gray-900">Record & Analyze Voice</h4>
+                <h4 className="mb-2 text-gray-900">Guided Pacing &amp; Fluency Coaching</h4>
                 <p className="text-sm text-gray-600">
-                  Record your speech and get instant playback to hear how you sound.
+                  Visual breath bubbles and rhythm pulses train relaxed airflow, gentle speech onsets, and steady pacing (100–120 SPM) for stammering and articulation.
                 </p>
               </div>
             </div>
@@ -120,9 +120,9 @@ export function LandingPage() {
                 <Sparkles className="w-6 h-6 text-teal-600" />
               </div>
               <div>
-                <h4 className="mb-2 text-gray-900">AI-Powered Feedback</h4>
+                <h4 className="mb-2 text-gray-900">Clinician Progress Dashboard</h4>
                 <p className="text-sm text-gray-600">
-                  Get detailed insights on clarity, pronunciation, pacing, and filler words.
+                  Therapists instantly see verified practice days, speech rhythm trends, and acoustic accuracy without wasting clinical time on manual checks.
                 </p>
               </div>
             </div>
@@ -132,9 +132,9 @@ export function LandingPage() {
                 <MessageSquare className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <h4 className="mb-2 text-gray-900">Mock Interviews</h4>
+                <h4 className="mb-2 text-gray-900">3-Second Audio Snippets</h4>
                 <p className="text-sm text-gray-600">
-                  Practice common interview questions with AI-guided sessions.
+                  The platform automatically bookmarks short audio clips of speech blocks and sound repetitions so clinicians can review struggles in seconds.
                 </p>
               </div>
             </div>
@@ -144,9 +144,9 @@ export function LandingPage() {
                 <TrendingUp className="w-6 h-6 text-purple-600" />
               </div>
               <div>
-                <h4 className="mb-2 text-gray-900">Daily Exercises</h4>
+                <h4 className="mb-2 text-gray-900">Verified Specialist Directory</h4>
                 <p className="text-sm text-gray-600">
-                  Build speaking skills with personalized daily practice routines.
+                  Connect with certified Speech-Language Pathologists for digital intake, treatment plans, and virtual tele-rehab consultations.
                 </p>
               </div>
             </div>
@@ -158,23 +158,23 @@ export function LandingPage() {
       <section className="px-6 py-20 bg-gradient-to-r from-cyan-500 to-teal-500 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl mb-6">
-            Help Us Build This Platform
+            Help Us Bridge Clinic &amp; Home
           </h2>
           <p className="text-lg mb-8 opacity-90">
-            Your feedback will shape the features we build. Tell us what you need most.
+            Are you a patient, parent, or speech therapist? Help us build a clinical platform that transforms speech rehabilitation.
           </p>
           <Link
             to="/feedback"
             className="inline-block px-8 py-4 bg-white text-teal-600 rounded-full hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
           >
-            Give Feedback
+            Share Your Feedback
           </Link>
         </div>
       </section>
 
       {/* Simple Footer */}
       <footer className="px-6 py-8 bg-gray-900 text-gray-400 text-center text-sm">
-        <p>© 2026 Speech & Interview Practice. Coming Soon.</p>
+        <p>© 2026 KinTherapy. Intelligent Tele-Rehabilitation. Coming Soon.</p>
       </footer>
     </div>
   );

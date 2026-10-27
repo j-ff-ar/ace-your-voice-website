@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { Star } from "lucide-react";
-import { sendSubmissionEmail } from "../lib/email";
 
 export function RateIdeaPage() {
   const navigate = useNavigate();
@@ -11,18 +10,8 @@ export function RateIdeaPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    sendSubmissionEmail({
-      kind: "rating",
-      title: "New idea rating",
-      message: `User rated this idea ${rating} out of 5 stars.`,
-    })
-      .then(() => navigate("/thank-you"))
-      .catch((error) => {
-        console.error("Failed to send rating email:", error);
-        alert("Email settings are not configured yet. Please add your EmailJS credentials.");
-      })
-      .finally(() => setIsSubmitting(false));
+    navigate("/thank-you");
+    setIsSubmitting(false);
   };
 
   return (
