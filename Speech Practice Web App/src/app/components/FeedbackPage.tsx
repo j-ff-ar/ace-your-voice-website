@@ -2,6 +2,48 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Send } from "lucide-react";
 
+const helpWithOptions = [
+  {
+    value: "Parent of a child with speech delay / stammering",
+    urdu: "بولنے میں تاخیر یا ہکلاہٹ والے بچے کے والدین",
+  },
+  {
+    value: "Adult managing stammering (stuttering)",
+    urdu: "ہکلاہٹ (لکنت) سے نمٹنے والا بالغ",
+  },
+  {
+    value: "Adult with articulation or post-stroke speech recovery",
+    urdu: "تلفظ یا فالج کے بعد بولنے کی بحالی کا سامنا کرنے والا بالغ",
+  },
+  {
+    value: "Licensed Speech-Language Pathologist / Clinic Owner",
+    urdu: "لائسنس یافتہ اسپیچ لینگویج پیتھالوجسٹ / کلینک کا مالک",
+  },
+];
+
+const featureOptions = [
+  {
+    value: "Daily guided phone practice with live voice feedback",
+    urdu: "روزانہ فون پر لائیو آواز کی رہنمائی کے ساتھ مشق",
+  },
+  {
+    value: "Visual breathing and pacing cues (for stammering & rhythm)",
+    urdu: "سانس لینے اور رفتار کے بصری اشارے (ہکلاہٹ اور بولنے کی روانی کے لیے)",
+  },
+  {
+    value: "Automatic progress reports sent to my speech therapist",
+    urdu: "میرے اسپیچ تھراپسٹ کو خودکار پیش رفت کی رپورٹس بھیجنا",
+  },
+  {
+    value: "Clinician dashboard to track patient homework compliance",
+    urdu: "مریض کی گھر کی مشق کی پابندی دیکھنے کے لیے کلینیشن ڈیش بورڈ",
+  },
+  {
+    value: "Online directory to find and book certified speech therapists",
+    urdu: "مصدقہ اسپیچ تھراپسٹ تلاش کرنے اور بک کرنے کے لیے آن لائن ڈائریکٹری",
+  },
+];
+
 export function FeedbackPage() {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,21 +92,18 @@ export function FeedbackPage() {
               Who are you and what is your primary focus?
             </label>
             <div className="space-y-3">
-              {[
-                "Parent of a child with speech delay / stammering",
-                "Adult managing stammering (stuttering)",
-                "Adult with articulation or post-stroke speech recovery",
-                "Licensed Speech-Language Pathologist / Clinic Owner",
-              ].map((option) => (
-                <label key={option} className="flex items-center gap-3 cursor-pointer group">
+              {helpWithOptions.map((option) => (
+                <label key={option.value} className="flex items-center gap-3 cursor-pointer group">
                   <input
                     type="checkbox"
-                    checked={formData.helpWith.includes(option)}
-                    onChange={() => handleCheckboxChange("helpWith", option)}
+                    checked={formData.helpWith.includes(option.value)}
+                    onChange={() => handleCheckboxChange("helpWith", option.value)}
                     className="w-5 h-5 rounded border-gray-300 text-cyan-500 focus:ring-cyan-500 cursor-pointer"
                   />
                   <span className="text-gray-700 group-hover:text-gray-900">
-                    {option}
+                    <span lang="en">{option.value}</span>
+                    <span className="mx-2 text-gray-400">/</span>
+                    <span lang="ur" dir="rtl">{option.urdu}</span>
                   </span>
                 </label>
               ))}
@@ -77,22 +116,18 @@ export function FeedbackPage() {
               Which features are most needed?
             </label>
             <div className="space-y-3">
-              {[
-                "Daily guided phone practice with live voice feedback",
-                "Visual breathing and pacing cues (for stammering & rhythm)",
-                "Automatic progress reports sent to my speech therapist",
-                "Clinician dashboard to track patient homework compliance",
-                "Online directory to find and book certified speech therapists",
-              ].map((option) => (
-                <label key={option} className="flex items-center gap-3 cursor-pointer group">
+              {featureOptions.map((option) => (
+                <label key={option.value} className="flex items-center gap-3 cursor-pointer group">
                   <input
                     type="checkbox"
-                    checked={formData.features.includes(option)}
-                    onChange={() => handleCheckboxChange("features", option)}
+                    checked={formData.features.includes(option.value)}
+                    onChange={() => handleCheckboxChange("features", option.value)}
                     className="w-5 h-5 rounded border-gray-300 text-teal-500 focus:ring-teal-500 cursor-pointer"
                   />
                   <span className="text-gray-700 group-hover:text-gray-900">
-                    {option}
+                    <span lang="en">{option.value}</span>
+                    <span className="mx-2 text-gray-400">/</span>
+                    <span lang="ur" dir="rtl">{option.urdu}</span>
                   </span>
                 </label>
               ))}
